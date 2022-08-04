@@ -41,7 +41,6 @@ def convert_df(df):
 
 if data is not None:
     df = pd.read_csv(data)
-    
         with st.container():
         subtitle_4 = '<p style="font-family:Courier; color:Black; font-size: 40px; font-weight:bold;">Stage 4 = Staircase</p>'
         st.markdown(subtitle_4, unsafe_allow_html=True)
