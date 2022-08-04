@@ -45,9 +45,6 @@ if data is not None:
     with st.container():
         subtitle_2 = '<p style="font-family:Courier; color:Black; font-size: 40px; font-weight:bold;">Stage 2 = No noise</p>'
         st.markdown(subtitle_2, unsafe_allow_html=True)
-        col1 = st.columns(1)
-
-        with col1:
 
             s2_r1_trials = df['key_resp_4.keys'].loc[df['key_resp_4.keys'].isin(['right', 'left']) ].count()
             s2_r1_answers = df.loc[df['key_resp_4.keys'].isin(['right', 'left']), ['key_resp_4.keys', 'key_reps_4.corr']]
