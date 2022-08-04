@@ -46,7 +46,7 @@ if data is not None:
         subtitle_1 = '<p style="font-family:Courier; color:Black; font-size: 40px; font-weight:bold;">Stage 2 = No noise</p>'
         st.markdown(subtitle_1, unsafe_allow_html=True)
 
-        s1_r1_trials = df['key_resp_4.keys'].loc[df['key_resp_4.keys'].isin(['right', 'left'])].count()
+        s1_r1_trials == df['key_resp_4.keys'].loc[df['key_resp_4.keys'].isin(['right', 'left'])].count()
         s1_r1_answers = df.loc[df['key_resp_4.keys'].isin(['right', 'left']), ['key_resp_4.keys', 'key_resp_4.corr']]
         s1_r1_errors = s2_r1_answers[s2_r1_answers['key_resp_4.corr'] == 0].value_counts()
 
