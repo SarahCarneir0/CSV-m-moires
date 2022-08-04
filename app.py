@@ -43,22 +43,22 @@ if data is not None:
     df = pd.read_csv(data) 
 
     with st.container():
-        subtitle_2 = '<p style="font-family:Courier; color:Black; font-size: 40px; font-weight:bold;">Stage 2 = No noise</p>'
-        st.markdown(subtitle_2, unsafe_allow_html=True)
+        subtitle_1 = '<p style="font-family:Courier; color:Black; font-size: 40px; font-weight:bold;">Stage 2 = No noise</p>'
+        st.markdown(subtitle_, unsafe_allow_html=True)
 
-        s2_r1_trials = df['key_resp_4.keys'].loc[df['key_resp_4.keys'].isin(['right', 'left'])].count()
-        s2_r1_answers = df.loc[df['key_resp_4.keys'].isin(['right', 'left']), ['key_resp_4.keys', 'key_resp_4.corr']]
-        s2_r1_errors = s2_r1_answers[s2_r1_answers['key_resp_4.corr'] == 0].value_counts()
+        s1_r1_trials = df['key_resp_4.keys'].loc[df['key_resp_4.keys'].isin(['right', 'left'])].count()
+        s1_r1_answers = df.loc[df['key_resp_4.keys'].isin(['right', 'left']), ['key_resp_4.keys', 'key_resp_4.corr']]
+        s1_r1_errors = s2_r1_answers[s2_r1_answers['key_resp_4.corr'] == 0].value_counts()
 
-        st.subheader(f'Total Trials \n {str(s2_r1_trials)}') 
+        st.subheader(f'Total Trials \n {str(s1_r1_trials)}') 
 
         st.subheader('List Answers')
-        st.write(s2_r1_answers)
+        st.write(s1_r1_answers)
 
         st.subheader('Total incorrect answers')
-        st.write(s2_r1_errors)
-        results.update({'stage2_1_trials' : [s2_r1_trials] , s2_r1_answers.columns[0] : [s2_r1_answers['key_resp_4.corr'].to_string(index=False)],s2_r1_answers.columns[1] : [s2_r1_answers['key_resp_4.keys'].to_string(index=False)] , 'stage2_1_incorrect' : [[s2_r1_errors]]})
-            
+        st.write(s1_r1_errors)
+        results.update({'stage2_1_trials' : [s1_r1_trials] , s1_r1_answers.columns[0] : [s1_r1_answers['key_resp_4.corr'].to_string(index=False)],s1_r1_answers.columns[1] : [s1_r1_answers['key_resp_4.keys'].to_string(index=False)] , 'stage2_1_incorrect' : [[s1_r1_errors]]})
+      
 
     with st.container():
         subtitle_3 = '<p style="font-family:Courier; color:Black; font-size: 40px; font-weight:bold;">Stage 3 = Noise</p>'
