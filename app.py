@@ -1,8 +1,7 @@
 # import pckgs
 import streamlit as st
 import numpy as np 
-import pandas as pd 
-import matplotlib.pyplot as plt
+import pandas as pd
 from statistics import mean
 import csv
 import tempfile
