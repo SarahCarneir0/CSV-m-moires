@@ -46,21 +46,21 @@ if data is not None:
         subtitle_2 = '<p style="font-family:Courier; color:Black; font-size: 40px; font-weight:bold;">Stage 2 = No noise</p>'
         st.markdown(subtitle_2, unsafe_allow_html=True)
 
-            s2_r1_trials = df['key_resp_4.keys'].loc[df['key_resp_4.keys'].isin(['right', 'left']) ].count()
-            s2_r1_answers = df.loc[df['key_resp_4.keys'].isin(['right', 'left']), ['key_resp_4.keys', 'key_reps_4.corr']]
-            s2_r1_errors = s2_r1_answers[s2_r1_answers['key_resp_4.corr'] == 0].value_counts()
+        s2_r1_trials = df['key_resp_4.keys'].loc[df['key_resp_4.keys'].isin(['right', 'left']) ].count()
+        s2_r1_answers = df.loc[df['key_resp_4.keys'].isin(['right', 'left']), ['key_resp_4.keys', 'key_reps_4.corr']]
+        s2_r1_errors = s2_r1_answers[s2_r1_answers['key_resp_4.corr'] == 0].value_counts()
 
-            subheader_1 = '<p style="font-family:Courier; color:Black; font-size: 24px; font-weight:bold;">Round 1</p>'
-            st.markdown(subheader_1, unsafe_allow_html=True)
+        subheader_1 = '<p style="font-family:Courier; color:Black; font-size: 24px; font-weight:bold;">Round 1</p>'
+        st.markdown(subheader_1, unsafe_allow_html=True)
             
-            st.subheader(f'Total Trials \n {str(s2_r1_trials)}') 
+        st.subheader(f'Total Trials \n {str(s2_r1_trials)}') 
 
-            st.subheader('List Answers')
-            st.write(s2_r1_answers)
+        st.subheader('List Answers')
+        st.write(s2_r1_answers)
 
-            st.subheader('Total incorrect answers')
-            st.write(s2_r1_errors)
-            results.update({'stage2_1_trials' : [s2_r1_trials] , s2_r1_answers.columns[0] : [s2_r1_answers['key_resp_4.corr'].to_string(index=False)],s2_r1_answers.columns[1] : [s2_r1_answers['key_resp_4.keys'].to_string(index=False)] , 'srage2_1_incorrect' : [[s2_r1_errors]]})
+        st.subheader('Total incorrect answers')
+        st.write(s2_r1_errors)
+        results.update({'stage2_1_trials' : [s2_r1_trials] , s2_r1_answers.columns[0] : [s2_r1_answers['key_resp_4.corr'].to_string(index=False)],s2_r1_answers.columns[1] : [s2_r1_answers['key_resp_4.keys'].to_string(index=False)] , 'srage2_1_incorrect' : [[s2_r1_errors]]})
 
     with st.container():
         subtitle_3 = '<p style="font-family:Courier; color:Black; font-size: 40px; font-weight:bold;">Stage 3 = Noise</p>'
