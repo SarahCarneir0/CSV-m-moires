@@ -116,7 +116,7 @@ if data is not None:
             st.write(f'Last four = {mean([i[1] for i in reversals(l_values)][-4:])}')
     
             st.subheader('Total incorrect answers')
-            staircase_answers = df.loc[df['staircase_loop.response'].isna() == False, ['CorrectAns','trials_2.response']].reset_index(drop=True)
+            staircase_answers = df.loc[df['trials_2.response'].isna() == False, ['CorrectAns','trials_2.response']].reset_index(drop=True)
             staircas_incorrect = staircase_answers[staircase_answers['trials_2.response'] == 0.0].value_counts()
             st.write(staircas_incorrect)
             results.update({'staircase_trials' : [total_s_trial] , staircase_answers.columns[0] : [staircase_answers['CorrectAns'].to_string(index=False)],staircase_answers.columns[1] : [staircase_answers['trials_2.response'].to_string(index=False)] , 'staircase_incorrect' : [[staircas_incorrect]]})
