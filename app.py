@@ -122,10 +122,10 @@ if data is not None:
             results.update({'staircase_trials' : [total_s_trial] , staircase_answers.columns[0] : [staircase_answers['CorrectAns'].to_string(index=False)],staircase_answers.columns[1] : [staircase_answers['trials_2.response'].to_string(index=False)] , 'staircase_incorrect' : [[staircas_incorrect]]})
 
             st.subheader('Total correct answers')
-            staircase_answers = df.loc[df['trials_2.response'].isna() == True, ['CorrectAns','trials_2.response']].reset_index(drop=False)
+            staircase_answers = df.loc[df['trials_2.response'].isna() == False, ['CorrectAns','trials_2.response']].reset_index(drop=True)
             staircas_correct = staircase_answers[staircase_answers['trials_2.response'] == 1.0].value_counts()
             st.write(staircas_correct)
-            results.update({'staircase_trials' : [total_s_trial] , staircase_answers.columns[0] : [staircase_answers['CorrectAns'].to_string(index=True)],staircase_answers.columns[1] : [staircase_answers['trials_2.response'].to_string(index=True)] , 'staircase_correct' : [[staircas_correct]]})
+            results.update({'staircase_trials' : [total_s_trial] , staircase_answers.columns[0] : [staircase_answers['CorrectAns'].to_string(index=False)],staircase_answers.columns[1] : [staircase_answers['trials_2.response'].to_string(index=False)] , 'staircase_correct' : [[staircas_correct]]})
 
     with st.container():
         col1,col2,col3 = st.columns(3)
